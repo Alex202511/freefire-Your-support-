@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Центр поддержки – Garena Free Fire</title>
+  <style>
+    body { font-family: Arial, sans-serif; padding: 20px; }
+    header, footer { background: #eee; padding: 10px; }
+    nav ul { list-style: none; padding: 0; }
+    nav li { display: inline; margin-right: 10px; }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>Центр поддержки</h1>
+    <nav>
+      <ul>
+        <li><a href="index.html">Главная</a></li>
+        <li><a href="login.html">Вход</a></li>
+        <li><a href="register.html">Регистрация</a></li>
+        <li><a href="admin.php">Админка</a></li>
+        <li><a href="logout.php">Выход</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <section>
+    <h2>Поиск статей</h2>
+    <input type="text" id="searchInput" placeholder="Введите запрос..." style="width:300px; padding:8px;"/>
+
+    <div id="articles">
+      <div class="article" data-title="Как создать аккаунт">Как создать аккаунт</div>
+      <div class="article" data-title="Проблемы с оплатой">Проблемы с оплатой</div>
+      <div class="article" data-title="Восстановление пароля">Восстановление пароля</div>
+      <div class="article" data-title="Игровые обновления">Игровые обновления</div>
+    </div>
+  </section>
+
+  <footer>
+    <p>© Garena</p>
+  </footer>
+
+  <script>
+    const searchInput = document.getElementById('searchInput');
+    const articles = document.querySelectorAll('.article');
+
+    searchInput.addEventListener('input', () => {
+      const query = searchInput.value.toLowerCase();
+      articles.forEach(article => {
+        const title = article.getAttribute('data-title').toLowerCase();
+        article.style.display = title.includes(query) ? '' : 'none';
+      });
+    });
+  </script>
+</body>
+</html>
